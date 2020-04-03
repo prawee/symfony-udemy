@@ -18,3 +18,9 @@ composer require annotations | composer require doctrine/annotations
 ```bash
 php bin/console make:controller
 ```
+
+## Start Server
+
+```bash
+symfony server:start
+```

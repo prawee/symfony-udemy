@@ -12,3 +12,9 @@ symfony new symfony-udemy --version=4.4
 composer require symfony/maker-bundle
 composer require annotations | composer require doctrine/annotations
 ```
+
+## Create Controller
+
+```bash
+php bin/console make:controller
+```

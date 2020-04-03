@@ -17,4 +17,15 @@ class UdemyController extends AbstractController
             'path' => 'src/Controller/UdemyController.php',
         ]);
     }
+
+    /**
+     * @Route("/todo", name="todo")
+     */
+
+    public function todo()
+    {
+        return $this->render('udemy/todo.html.twig', array(
+            'name' => 'prawee wongsa'
+        ));
+    }
 }

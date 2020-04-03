@@ -20,6 +20,13 @@ php bin/console make:controller
 composer require symfony/twig-bundle
 ```
 
+## Install package and database
+
+```bash
+composer require symfony/orm-pack
+php bin/console doctrine:database:create
+```
+
 ## Start Server
 
 ```bash

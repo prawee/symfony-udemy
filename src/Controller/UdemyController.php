@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Todo;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class UdemyController extends AbstractController
@@ -39,5 +40,20 @@ class UdemyController extends AbstractController
         return $this->render('udemy/todo.html.twig', array(
             'name' => $name
         ));
+    }
+
+    /**
+     * @Route("/udemy/details", name="todo_details")
+     */
+    public function getDetails()
+    {
+        $todo = $this->getDoctrine()
+            ->getRepository(Todo::class)
+            ->find(10);
+        //var_dump($todo->getName());
+        if (!$todo) {
+            throw $this->createNotFoundException('No record for todo with this id');
+        }
+        return new Response($todo->getName());
     }
 }

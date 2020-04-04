@@ -50,12 +50,17 @@ class UdemyController extends AbstractController
         $todo = $this->getDoctrine()
             ->getRepository(Todo::class)
             //->find(10);
-            ->findAll();
+            //->findAll();
+            ->findByName('youtube');
         //var_dump($todo->getName());
         if (!$todo) {
             throw $this->createNotFoundException('No record for todo with this id');
         }
         //return new Response($todo->getName());
-        return new Response(print_r($todo));
+
+        foreach($todo as $t) {
+            echo '<p>'.$t->getName().'</p>';
+        }
+        //return new Response(print_r($todo));
     }
 }

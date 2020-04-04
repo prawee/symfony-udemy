@@ -47,4 +47,21 @@ class TodoRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    /**
+     * Find the like the input value
+     * @param $value
+     * $return mixed
+     */
+    public function findByName($value)
+    {
+        return $this->createQueryBuilder('t')
+            ->andWhere('t.name like :val')
+            ->setParameter('val', '%'.$value.'%')
+            ->orderBy('t.id', 'ASC')
+            ->setMaxResults(10)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
 }

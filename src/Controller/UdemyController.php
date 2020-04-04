@@ -63,4 +63,28 @@ class UdemyController extends AbstractController
         }
         //return new Response(print_r($todo));
     }
+
+    /**
+     * @Route("/updatetodo/{id}", name="update_todo")
+     */
+    public function updateTodo($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $todo = $em->getRepository(Todo::class)
+            ->find($id);
+
+        if (!$todo) {
+            throw $this->createNotFoundException('No record for todo with this id');
+        }
+
+        //print_r($todo);
+
+        $todo->setPriority('Medium')
+            ->setName('Updated '.$todo->getName());
+        $em->flush();
+
+
+        return new Response('we have this todo: '.$id);
+    }
 }

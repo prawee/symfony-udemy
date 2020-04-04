@@ -18,8 +18,8 @@ class UdemyController extends AbstractController
 
         $todo = new Todo();
         $todo->setStatus('On going')
-            ->setPriority('High')
-            ->setName('Create udemy courses')
+            ->setPriority('Low')
+            ->setName('public youtube video')
             ->setDateCreation(new \DateTime());
 
         $em->persist($todo);
@@ -49,11 +49,13 @@ class UdemyController extends AbstractController
     {
         $todo = $this->getDoctrine()
             ->getRepository(Todo::class)
-            ->find(10);
+            //->find(10);
+            ->findAll();
         //var_dump($todo->getName());
         if (!$todo) {
             throw $this->createNotFoundException('No record for todo with this id');
         }
-        return new Response($todo->getName());
+        //return new Response($todo->getName());
+        return new Response(print_r($todo));
     }
 }

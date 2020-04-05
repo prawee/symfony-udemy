@@ -5,6 +5,8 @@ namespace App\Controller;
 use App\Entity\Todo;
 use App\Form\TodoType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -38,7 +40,14 @@ class UdemyController extends AbstractController
 
     public function todo(String $name)
     {
-        $form = $this->createForm(TodoType::class);
+        //$form = $this->createForm(TodoType::class);
+
+        $form = $this->createFormBuilder()
+            ->add('username', TextType::class)
+            ->add('password', PasswordType::class)
+            ->getForm()
+        ;
+
         return $this->render('udemy/todo.html.twig', array(
             'name' => $name,
             'form' => $form->createView()

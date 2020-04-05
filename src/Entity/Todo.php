@@ -23,7 +23,9 @@ class Todo
     private $name;
 
     /**
-     * @Assert\Email()
+     * @Assert\Email(
+     *     message="This is not a valid {{ value }}"
+     * )
      * @ORM\Column(type="string", length=255)
      */
     private $priority;

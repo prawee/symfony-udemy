@@ -21,6 +21,11 @@ class User
      */
     private $username;
 
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\Todo", mappedBy="user", cascade={"persist", "remove"})
+     */
+    private $todo;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -34,6 +39,23 @@ class User
     public function setUsername(string $username): self
     {
         $this->username = $username;
+
+        return $this;
+    }
+
+    public function getTodo(): ?Todo
+    {
+        return $this->todo;
+    }
+
+    public function setTodo(Todo $todo): self
+    {
+        $this->todo = $todo;
+
+        // set the owning side of the relation if necessary
+        if ($todo->getUser() !== $this) {
+            $todo->setUser($this);
+        }
 
         return $this;
     }

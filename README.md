@@ -38,6 +38,12 @@ composer require symfony/form
 php bin/console make:form
 ```
 
+## Install package and validation
+
+```bash
+composer require symfony/validator
+```
+
 ## Start Server
 
 ```bash

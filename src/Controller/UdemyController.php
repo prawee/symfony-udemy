@@ -46,8 +46,12 @@ class UdemyController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            print_r($_REQUEST);
-            echo 'form submitted';
+            $todoTmp = $form->getData();
+            //print_r($todoTmp);
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($todoTmp);
+            $em->flush();
         }
 
         /*$form = $this->createFormBuilder()

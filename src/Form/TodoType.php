@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Todo;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -17,7 +18,7 @@ class TodoType extends AbstractType
             ->add('name', TextType::class, array("label" => 'Hello from controller'))
             ->add('priority')
             ->add('status')
-            //->add('dateCreation')
+            ->add('dateCreation', DateTimeType::class)
             ->add('Submit', SubmitType::class)
         ;
     }

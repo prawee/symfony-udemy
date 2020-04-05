@@ -35,6 +35,7 @@ php bin/console doctrine:migrations:execute --up 20200404071331
 
 ```bash
 composer require symfony/form
+php bin/console make:form
 ```
 
 ## Start Server

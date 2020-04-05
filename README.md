@@ -44,6 +44,14 @@ php bin/console make:form
 composer require symfony/validator
 ```
 
+## Fixed relation of database
+
+```bash
+php bin/console doctrine:database:drop --force
+php bin/console doctrine:database:create
+php bin/console doctrine:migrations:migrate
+```
+
 ## Start Server
 
 ```bash

@@ -43,6 +43,7 @@ class Todo
     /**
      * @ORM\OneToOne(targetEntity="App\Entity\user", inversedBy="todo", cascade={"persist", "remove"})
      * @ORM\JoinColumn(nullable=false)
+     * @ORM\Column(options={"default":"0"})
      */
     private $user;
 

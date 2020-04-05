@@ -23,6 +23,7 @@ class User
 
     /**
      * @ORM\OneToOne(targetEntity="App\Entity\Todo", mappedBy="user", cascade={"persist", "remove"})
+     * @ORM\Column(options={"default":"0"})
      */
     private $todo;
 

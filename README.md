@@ -31,6 +31,12 @@ php bin/console doctrine:migrations:migrate
 php bin/console doctrine:migrations:execute --up 20200404071331
 ```
 
+## Install package with form
+
+```bash
+composer require symfony/form
+```
+
 ## Start Server
 
 ```bash

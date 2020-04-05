@@ -131,4 +131,41 @@ class UdemyController extends AbstractController
 
         return new Response("Todo with $id is removed correctly!");
     }
+
+    /**
+     * Load todos from database
+     * @Route("/todo-edit/{id}", name="todo")
+     */
+
+    public function EditTodo(String $id, Request $request)
+    {
+        $todo = $this->getDoctrine()
+            ->getRepository(Todo::class)
+            ->find($id);
+
+        $form = $this->createForm(TodoType::class);
+        $form->setData($todo);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $todoTmp = $form->getData();
+            //print_r($todoTmp);
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($todoTmp);
+            $em->flush();
+        }
+
+        /*$form = $this->createFormBuilder()
+            ->add('username', TextType::class)
+            ->add('password', PasswordType::class)
+            ->getForm()
+        ;*/
+
+        return $this->render('udemy/todo.html.twig', array(
+            'name' => $id,
+            'form' => $form->createView()
+        ));
+    }
 }

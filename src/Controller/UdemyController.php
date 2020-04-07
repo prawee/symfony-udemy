@@ -38,7 +38,6 @@ class UdemyController extends AbstractController
     /**
      * @Route("/todo/{name}", name="todo")
      */
-
     public function todo(String $name, Request $request)
     {
         $form = $this->createForm(TodoType::class);
@@ -136,7 +135,6 @@ class UdemyController extends AbstractController
      * Load todos from database
      * @Route("/todo-edit/{id}", name="todo")
      */
-
     public function EditTodo(String $id, Request $request)
     {
         $todo = $this->getDoctrine()

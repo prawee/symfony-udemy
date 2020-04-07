@@ -57,6 +57,7 @@ php bin/console doctrine:migrations:migrate
 ```bash
 composer require symfony/asset
 composer require encore
+npm run watch
 ```
 
 ## Start Server

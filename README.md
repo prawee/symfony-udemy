@@ -60,6 +60,12 @@ composer require encore
 npm run watch
 ```
 
+### Enable SASS
+
+```bash
+npm install sass-loader@^7.0.1 node-sass --save-dev
+```
+
 ## Start Server
 
 ```bash

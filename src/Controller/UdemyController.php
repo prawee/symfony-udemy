@@ -166,4 +166,12 @@ class UdemyController extends AbstractController
             'form' => $form->createView()
         ));
     }
+
+    /**
+     * @Route("/encore", name="encore")
+     */
+    public function encore()
+    {
+        return $this->render('udemy/encore.html.twig', ['name' => 'test']);
+    }
 }

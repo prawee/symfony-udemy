@@ -20,14 +20,14 @@ class UdemyController extends AbstractController
     {
         $em = $this->getDoctrine()->getManager();
 
-        $todo = new Todo();
+        /*$todo = new Todo();
         $todo->setStatus('On going')
             ->setPriority('Low')
             ->setName('public youtube video')
             ->setDateCreation(new \DateTime());
 
         $em->persist($todo);
-        $em->flush();
+        $em->flush();*/
 
         return $this->json([
             'message' => 'Welcome to your new controller!',

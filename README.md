@@ -52,6 +52,12 @@ php bin/console doctrine:database:create
 php bin/console doctrine:migrations:migrate
 ```
 
+## Install package and asset
+
+```bash
+composer require symfony/asset
+```
+
 ## Start Server
 
 ```bash

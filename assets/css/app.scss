@@ -1,8 +1,10 @@
+$primary-color: orange;
+$text-color: white;
 body {
-    background-color: orange;
-    text {
-        color: white;
-        font-size: 40px;
-    }
+    background-color: $primary-color;
 }
 
+.title {
+    color: $text-color;
+    font-size: 40px;
+}

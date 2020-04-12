@@ -14,5 +14,18 @@ body {
     }
     .wrapper {
         background: #ffffff;
+        span.status {
+            display: inline-block;
+            border: 1px solid #cccccc;
+            border-radius: 50%;
+            background-color: #fff;
+            height: 15px;
+            width: 15px;
+            vertical-align: middle;
+            &.done {
+                background: forestgreen;
+                border: 1px solid forestgreen;
+            }
+        }
     }
 }

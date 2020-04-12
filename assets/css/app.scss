@@ -1,14 +1,15 @@
+$primary-color: #fafafa;
+$text-color: #313131;
 body {
-    background-color: #fafafa;
+    background-color: $primary-color;
     header {
         background: #db4c3f;
         a {
             color: #ffffff;
             &:hover {
-                color: #313131;
+                color: $text-color;
                 text-decoration: none;
             }
         }
     }
 }
-

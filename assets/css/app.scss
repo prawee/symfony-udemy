@@ -1,8 +1,14 @@
 body {
-    background-color: orange;
-    text {
-        color: white;
-        font-size: 40px;
+    background-color: #fafafa;
+    header {
+        background: #db4c3f;
+        a {
+            color: #ffffff;
+            &:hover {
+                color: #313131;
+                text-decoration: none;
+            }
+        }
     }
 }
 

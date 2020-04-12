@@ -64,6 +64,7 @@ npm run watch
 
 ```bash
 npm install sass-loader@^7.0.1 node-sass --save-dev
+npm run watch
 ```
 
 ## Start Server

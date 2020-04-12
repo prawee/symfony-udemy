@@ -174,4 +174,12 @@ class UdemyController extends AbstractController
     {
         return $this->render('udemy/encore.html.twig', ['name' => 'test']);
     }
+
+    /**
+     * @Route("addtodo", name="add-todo")
+     */
+    public function addTodo()
+    {
+
+    }
 }

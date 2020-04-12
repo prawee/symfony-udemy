@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Todo;
+use App\Entity\User;
 use App\Form\TodoType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
@@ -36,9 +37,9 @@ class UdemyController extends AbstractController
     }
 
     /**
-     * @Route("/todo/{name}", name="todo")
+     * @Route("/add", name="add-todo")
      */
-    public function todo(String $name, Request $request)
+    public function todo(Request $request)
     {
         $form = $this->createForm(TodoType::class);
 
@@ -46,7 +47,8 @@ class UdemyController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $todoTmp = $form->getData();
-            //print_r($todoTmp);
+            print_r($todoTmp);
+            exit;
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($todoTmp);
@@ -60,7 +62,6 @@ class UdemyController extends AbstractController
         ;*/
 
         return $this->render('udemy/todo.html.twig', array(
-            'name' => $name,
             'form' => $form->createView()
         ));
     }
@@ -172,14 +173,11 @@ class UdemyController extends AbstractController
      */
     public function encore()
     {
-        return $this->render('udemy/encore.html.twig', ['name' => 'test']);
-    }
+        $em = $this->getDoctrine()->getManager();
+        $todos = $em->getRepository(Todo::class)->findAll();
 
-    /**
-     * @Route("addtodo", name="add-todo")
-     */
-    public function addTodo()
-    {
-
+        return $this->render('udemy/encore.html.twig', [
+            'todos' => $todos
+        ]);
     }
 }

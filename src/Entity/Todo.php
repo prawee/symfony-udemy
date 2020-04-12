@@ -23,9 +23,6 @@ class Todo
     private $name;
 
     /**
-     * @Assert\Email(
-     *     message="This is not a valid {{ value }}"
-     * )
      * @ORM\Column(type="string", length=255)
      */
     private $priority;
@@ -36,16 +33,26 @@ class Todo
     private $status;
 
     /**
-     * @ORM\Column(type="datetime")
-     */
-    private $dateCreation;
-
-    /**
-     * @ORM\OneToOne(targetEntity="App\Entity\user", inversedBy="todo", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity="App\Entity\User", inversedBy="todo", cascade={"persist", "remove"})
      * @ORM\JoinColumn(nullable=false)
      * @ORM\Column(options={"default":"0"})
      */
     private $user;
+
+    /**
+     * @ORM\Column(type="datetime", options={"defalut": "1970-01-02"})
+     */
+    private $createData;
+
+    /**
+     * @ORM\Column(type="datetime", options={"default": "1970-01-02"})
+     */
+    private $dateDue;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $description;
 
     public function getId(): ?int
     {
@@ -88,26 +95,50 @@ class Todo
         return $this;
     }
 
-    public function getDateCreation(): ?\DateTimeInterface
-    {
-        return $this->dateCreation;
-    }
-
-    public function setDateCreation(\DateTimeInterface $dateCreation): self
-    {
-        $this->dateCreation = $dateCreation;
-
-        return $this;
-    }
-
-    public function getUser(): ?user
+    public function getUser(): ?User
     {
         return $this->user;
     }
 
-    public function setUser(user $user): self
+    public function setUser(?User $user): self
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    public function getCreateData(): ?\DateTimeInterface
+    {
+        return $this->createData;
+    }
+
+    public function setCreateData(\DateTimeInterface $createData): self
+    {
+        $this->createData = $createData;
+
+        return $this;
+    }
+
+    public function getDateDue(): ?\DateTimeInterface
+    {
+        return $this->dateDue;
+    }
+
+    public function setDateDue(\DateTimeInterface $dateDue): self
+    {
+        $this->dateDue = $dateDue;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(string $description): self
+    {
+        $this->description = $description;
 
         return $this;
     }

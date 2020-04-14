@@ -21,12 +21,6 @@ class User
      */
     private $username;
 
-    /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Todo", mappedBy="user", cascade={"persist", "remove"})
-     * @ORM\Column(options={"default":"0"})
-     */
-    private $todo;
-
     public function getId(): ?int
     {
         return $this->id;

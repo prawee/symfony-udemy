@@ -9,8 +9,9 @@
     {{ form_errors(form.priority) }}
     <div class="row">
         <div class="col-6">
-            {{ form_label(form.priority, 'Please set the priority') }}
-            {{ form_row(form.priority, { "label": false }) }}
+            {#{{ form_label(form.priority, 'Please set the priority') }}#}
+            {#{{ form_row(form.priority, { "label": false }) }}#}
+            {{ form_row(form.priority) }}
         </div>
         <div class="col-6">
             {{ form_row(form.name) }}
@@ -19,7 +20,7 @@
             {{ form_row(form.status) }}
         </div>
         <div class="col-6">
-            {{ form_row(form.dateCreation) }}
+            {#{{ form_row(form.dateCreation) }}#}
         </div>
     </div>
     {{ form_end(form) }}

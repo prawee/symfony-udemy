@@ -33,13 +33,6 @@ class Todo
     private $status;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\User", inversedBy="todo", cascade={"persist", "remove"})
-     * @ORM\JoinColumn(nullable=false)
-     * @ORM\Column(options={"default":"0"})
-     */
-    private $user;
-
-    /**
      * @ORM\Column(type="datetime", options={"defalut": "1970-01-02"})
      */
     private $createData;

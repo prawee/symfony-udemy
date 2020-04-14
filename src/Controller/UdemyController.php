@@ -47,8 +47,6 @@ class UdemyController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $todoTmp = $form->getData();
-            print_r($todoTmp);
-            exit;
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($todoTmp);

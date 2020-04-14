@@ -2,10 +2,18 @@
 
 {% block title %}Todo App{% endblock %}
 {% block body %}
-    {% for todo in todos %}
-        <p>
-            <span class="status {% if todo.status == 'Pending' %} done {% endif %}"></span>
-            {{ todo.name }}
-        </p>
-    {% endfor %}
+    <div class="row">
+        {% for todo in todos %}
+            <div class="col-12 col-lg-8">
+                <span class="status {% if todo.status == 'Pending' %} done {% endif %}"></span>
+                {{ todo.name }}
+                <div class="description mt-2 mb-2 pl-4">
+                    {{ todo.description }}
+                </div>
+            </div>
+            <div class="col-12 col-lg-4">
+                {#<span>Date: {{ todo.createData | date("m/d/Y") }}</span>#}
+            </div>
+        {% endfor %}
+    </div>
 {% endblock %}

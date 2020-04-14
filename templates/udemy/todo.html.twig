@@ -8,6 +8,15 @@
 
     {{ form_errors(form.priority) }}
     <div class="row">
+        <div class="col-12">
+            {% for message in app.flashes('notice') %}
+                <div class="alert alert-success p-2">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="row">
         <div class="col-6">
             {#{{ form_label(form.priority, 'Please set the priority') }}#}
             {#{{ form_row(form.priority, { "label": false }) }}#}

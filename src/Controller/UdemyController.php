@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Todo;
 use App\Entity\User;
 use App\Form\TodoType;
+use http\Message;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -46,11 +47,19 @@ class UdemyController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $todoTmp = $form->getData();
+            try {
+                $todoTmp = $form->getData();
 
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($todoTmp);
-            $em->flush();
+                $em = $this->getDoctrine()->getManager();
+                $this->addFlash(
+                    'notice',
+                    'Your todo is record'
+                );
+                $em->persist($todoTmp);
+                $em->flush();
+            } catch (\Exception $Exception) {
+
+            }
         }
 
         /*$form = $this->createFormBuilder()

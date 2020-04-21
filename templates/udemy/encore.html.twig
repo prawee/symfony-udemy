@@ -9,6 +9,7 @@
 
         <div class="accordion" id="accordionExample">
         {% for todo in todos %}
+
             {#<div class="row todo-item pt-2 pb-2">#}
                 {#<div class="col-12 col-lg-8">#}
                     {#<span class="status {% if todo.status == 'Pending' %} done {% endif %}"></span>#}
@@ -24,21 +25,29 @@
 
             <div class="card">
                 <div class="card-header" id="headingOne">
-                    <h2 class="mb-0">
-                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne{{ loop.index }}"
-                                aria-expanded="true" aria-controls="collapseOne{{ loop.index }}">
+
+                        <div class="btn btn-link collapser d-block p-2 text-left" type="button" data-toggle="collapse" data-target="#collapseOne{{ loop.index }}"
+                                aria-expanded="{% if loop.first %}true{% endif %}" aria-controls="collapseOne{{ loop.index }}">
                             <span class="status {% if todo.status == 'Pending' %} done {% endif %}"></span>
-                            <span class="font-weight-bold">{{ todo.name }}</span>
-                        </button>
-                    </h2>
+                            <span class="todo-name">{{ todo.name }}</span>
+                        </div>
+
                 </div>
 
-                <div id="collapseOne{{ loop.index }}" class="collapse show" aria-labelledby="headingOne"
+                <div id="collapseOne{{ loop.index }}"
+                     class="collapse {% if loop.first %}show{% endif %}"
+                     aria-labelledby="headingOne"
                      data-parent="#accordionExample">
                     <div class="card-body">
                         {{ todo.description }}
                         <br/>
                         <span>Date: {{ todo.createData | date("m/d/Y") }}</span>
+                        <hr/>
+                        <ul class="nav text-right">
+                            <li class="mr-4 d-inline-block"><a href="/edit/{{ todo.id }}">Edit</a></li>
+                            <li class="mr-4 d-inline-block"><a href="/edit/{{ todo.id }}">Close</a></li>
+                            <li class="mr-4 d-inline-block"><a href="/delete/{{ todo.id }}">Delete</a></li>
+                        </ul>
                     </div>
                 </div>
             </div>

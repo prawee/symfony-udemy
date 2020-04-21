@@ -1,7 +1,14 @@
+//@import "~bootstrap/scss/bootstrap";
+
 $primary-color: #fafafa;
 $text-color: #313131;
 body {
     background-color: $primary-color;
+
+    .text-overline {
+        text-decoration: line-through !important;
+        opacity: .2;
+    }
     header {
         background: #db4c3f;
         a {
@@ -14,23 +21,64 @@ body {
     }
     .wrapper {
         background: #ffffff;
-        span.status {
-            display: inline-block;
-            border: 1px solid #cccccc;
-            border-radius: 50%;
-            background-color: #fff;
-            height: 15px;
-            width: 15px;
-            vertical-align: middle;
-            &.done {
-                background: forestgreen;
-                border: 1px solid forestgreen;
+        position: absolute;
+        width: 70%;
+        height: 70vh;
+        overflow: hidden;
+        margin: auto;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        border-radius: 10px;
+        box-shadow: -4px 7px 11px #65656557;
+
+        .wrapper-container {
+            width: 100%;
+            height: 100%;
+            overflow-y: scroll;
+            padding-right: 17px;
+            box-sizing: content-box;
+            span.status {
+                display: inline-block;
+                border: 1px solid #cccccc;
+                border-radius: 50%;
+                background-color: #fff;
+                height: 15px;
+                width: 15px;
+                vertical-align: middle;
+                &.done {
+                    background: #37d7b2;
+                    border-color: #37d7b2;
+                }
+            }
+            .description {
+                font-family: 'Ubuntu Light';
+                font-weight: 100;
+                opacity: .8;
+            }
+            .todo-item {
+                border-bottom: 1px solid #fafafa;
+                box-shadow: -7px 5px 20px 2px #a9a9a926;
+                margin: 20px;
+                border-radius: 6px;
+                border: 1px solid #f9f9f9;
             }
         }
-        .description {
-            font-family: 'Ubuntu Light';
-            font-weight: 100;
-            opacity: .8;
+
+        .card, .accordion > .card:not(:first-of-type):not(:last-of-type) {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.125) !important;
+            border-width: 0 0 1px 0;
+        }
+        .todo-name {
+            font-family: Ubuntu, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            font-weight: bold;
+            font-size: 1.4rem;
+            color: #2e2e2e;
+        }
+        .collapse.show,
+        .collapser[aria-expanded="true"] {
+            backgroud: #d3cece2b;
         }
     }
 }

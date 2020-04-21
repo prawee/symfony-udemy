@@ -10,9 +10,14 @@ import '../css/app.scss';
 import '../css/style.scss';
 
 // Need jQuery? Install it with "yarn add jquery", then uncomment to import it.
-import $ from 'jquery';
-import 'bootstrap';
+// import $ from 'jquery';
+// const $ = require('jquery');
+// import 'bootstrap';
+// require('bootstrap/dist/js/bootstrap');
+
+// global.$ = global.jQuery = $;
 
 console.log('Hello Webpack Encore! Edit me in assets/js/app.js');
 
-$('.collapse').collapse()
+$('.collapse').collapse();
+

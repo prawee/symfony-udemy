@@ -71,6 +71,7 @@ npm run watch
 
 ```bash
 composer require orm-fixtures --dev
+php bin/console doctrine:fixtures:load
 ```
 
 ## Start Server

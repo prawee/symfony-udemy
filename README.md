@@ -67,6 +67,12 @@ npm install sass-loader@^7.0.1 node-sass --save-dev
 npm run watch
 ```
 
+## Fixture
+
+```bash
+composer require orm-fixtures --dev
+```
+
 ## Start Server
 
 ```bash

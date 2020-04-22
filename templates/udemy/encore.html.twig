@@ -7,6 +7,16 @@
         No todo for now!
     {% else %}
 
+        <div class="row">
+            <div class="col-12">
+                {% for message in app.flashes('notice') %}
+                    <div class="alert alert-success p-2">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
         <div class="accordion" id="accordionExample">
         {% for todo in todos %}
 
@@ -46,7 +56,7 @@
                         <ul class="nav text-right">
                             <li class="mr-4 d-inline-block"><a href="/todo-edit/{{ todo.id }}">Edit</a></li>
                             <li class="mr-4 d-inline-block"><a href="/edit/{{ todo.id }}">Close</a></li>
-                            <li class="mr-4 d-inline-block"><a href="/delete/{{ todo.id }}">Delete</a></li>
+                            <li class="mr-4 d-inline-block"><a href="/deletetodo/{{ todo.id }}">Delete</a></li>
                         </ul>
                     </div>
                 </div>

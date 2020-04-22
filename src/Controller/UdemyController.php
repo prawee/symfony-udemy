@@ -204,4 +204,35 @@ class UdemyController extends AbstractController
             'todos' => $todos
         ]);
     }
+
+    /**
+     * @Route("todo-close/{id}", name="close_todo")
+     */
+    public function closeTodo($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $todo = $em->getRepository(Todo::class)
+            ->find($id);
+
+        if (!$todo) {
+            throw $this->createNotFoundException(
+                'No record for todo with this id: '.$id
+            );
+        }
+
+        $todo->setStatus('done');
+        $em->flush();
+
+        $this->addFlash(
+            'notice',
+            "Todo $id updated correctly"
+        );
+
+        /*return new Response(
+            "Todo with $id is removed correctly!"
+        );*/
+
+        return $this->redirectToRoute('encore');
+    }
 }

@@ -38,7 +38,7 @@
 
                         <div class="btn btn-link collapser d-block p-2 text-left" type="button" data-toggle="collapse" data-target="#collapseOne{{ loop.index }}"
                                 aria-expanded="{% if loop.first %}true{% endif %}" aria-controls="collapseOne{{ loop.index }}">
-                            <span class="status {% if todo.status == 'Pending' %} done {% endif %}"></span>
+                            <span class="status {% if todo.status == 'done' %} done {% endif %}"></span>
                             <span class="todo-name">{{ todo.name }}</span>
                         </div>
 
@@ -55,7 +55,7 @@
                         <hr/>
                         <ul class="nav text-right">
                             <li class="mr-4 d-inline-block"><a href="/todo-edit/{{ todo.id }}">Edit</a></li>
-                            <li class="mr-4 d-inline-block"><a href="/edit/{{ todo.id }}">Close</a></li>
+                            <li class="mr-4 d-inline-block"><a href="/todo-close/{{ todo.id }}">Close</a></li>
                             <li class="mr-4 d-inline-block"><a href="/deletetodo/{{ todo.id }}">Delete</a></li>
                         </ul>
                     </div>

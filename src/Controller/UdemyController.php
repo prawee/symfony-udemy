@@ -130,13 +130,24 @@ class UdemyController extends AbstractController
             ->find($id);
 
         if (!$todo) {
-            throw $this->createNotFoundException('No record for todo with this id');
+            throw $this->createNotFoundException(
+                'No record for todo with this id: '.$id
+            );
         }
 
         $em->remove($todo);
         $em->flush();
 
-        return new Response("Todo with $id is removed correctly!");
+        $this->addFlash(
+            'notice',
+            'Todo deleted correctly'
+        );
+
+        /*return new Response(
+            "Todo with $id is removed correctly!"
+        );*/
+
+        return $this->redirectToRoute('encore');
     }
 
     /**

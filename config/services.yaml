@@ -29,3 +29,7 @@ services:
     App\EventListener\KernelException:
         tags:
             - { name: kernel.event_listener, event: kernel.exception }
+
+    App\EventSubscriber\KernelSubscriber:
+        tags:
+            - { name: kernel.event_subscriber }

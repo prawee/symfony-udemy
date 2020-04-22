@@ -80,6 +80,12 @@ php bin/console doctrine:fixtures:load
 composer require symfony/event-dispatcher
 ```
 
+### Event Subscriber
+
+```bash
+php bin/console debug:event-dispatcher kernel.exception
+```
+
 ## Start Server
 
 ```bash

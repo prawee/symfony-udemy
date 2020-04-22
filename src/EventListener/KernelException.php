@@ -10,7 +10,7 @@
 namespace App\EventListener;
 
 
-class KenelException
+class KernelException
 {
     public function onKernelException()
     {

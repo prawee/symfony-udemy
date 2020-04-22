@@ -2,11 +2,13 @@
 
 namespace App\Controller;
 
+use App\CustomEvent\TodoEvent;
 use App\Entity\Todo;
 use App\Entity\User;
 use App\Form\TodoType;
 use http\Message;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
@@ -154,11 +156,15 @@ class UdemyController extends AbstractController
      * Load todos from database
      * @Route("/todo-edit/{id}", name="todo")
      */
-    public function EditTodo(String $id, Request $request)
+    public function EditTodo(String $id, Request $request,
+                             EventDispatcherInterface $eventDispatcher)
     {
         $todo = $this->getDoctrine()
             ->getRepository(Todo::class)
             ->find($id);
+
+        $todoEvent = new TodoEvent($todo);
+        $eventDispatcher->dispatch(TodoEvent::NAME, $todoEvent);
 
         $form = $this->createForm(TodoType::class);
         $form->setData($todo);

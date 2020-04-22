@@ -37,3 +37,8 @@ services:
     App\EventListener\TodoListener:
         tags:
             - { name: doctrine.event_listener, event: postPersist }
+            - { name: kernel.event_listener, event: todo.opened, method: 'todoOpened' }
+
+    App\CustomEvent\TodoCustomSubscriber:
+        tags:
+            - { name: kernel.event_subscriber }

@@ -10,6 +10,7 @@
 namespace App\EventListener;
 
 
+use App\CustomEvent\TodoEvent;
 use App\Entity\Todo;
 use Doctrine\ORM\Event\LifecycleEventArgs;
 
@@ -22,6 +23,12 @@ class TodoListener
         if (!$entity instanceof Todo)
             return;
 
-        echo $entity->getName();
+        //echo $entity->getName();
+    }
+
+    public function todoOpened(TodoEvent $todoEvent)
+    {
+        echo '<br/>'.$todoEvent->getTodo()->getDescription().'<br/>';
+        //echo ('Hello from the new event TODO EVENT');
     }
 }

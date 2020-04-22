@@ -14,6 +14,6 @@ class KernelException
 {
     public function onKernelException()
     {
-        die('I am listener');
+        //die('I am listener');
     }
 }

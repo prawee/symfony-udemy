@@ -160,6 +160,12 @@ class UdemyController extends AbstractController
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($todoTmp);
+
+            $this->addFlash(
+                'notice',
+                'Your todo is record'
+            );
+
             $em->flush();
         }
 

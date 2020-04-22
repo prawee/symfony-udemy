@@ -4,4 +4,4 @@
 
 blog:
   path: /
-  controller: App\Controller\UdemyController:index
+  controller: App\Controller\UdemyController:encore

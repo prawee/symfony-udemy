@@ -56,11 +56,10 @@
                         <ul class="nav text-right">
                             <li class="mr-4 d-inline-block"><a href="/todo-edit/{{ todo.id }}">Edit</a></li>
                             <li class="mr-4 d-inline-block">
-                                {% if (todo.status | lower ) != 'done' %}
-                                    <a href="/todo-close/{{ todo.id }}">Close</a>
-                                {% else %}
+                                <a class="{% if (todo.status | lower) == 'done' %}text-overline{% endif %}"
+                                        {% if (todo.status | lower ) != 'done' %} href="/todo-close/{{ todo.id }}"{% endif %}>
                                     Close
-                                {% endif %}
+                                </a>
                             </li>
                             <li class="mr-4 d-inline-block"><a href="/deletetodo/{{ todo.id }}">Delete</a></li>
                         </ul>

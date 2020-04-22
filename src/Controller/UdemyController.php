@@ -163,7 +163,7 @@ class UdemyController extends AbstractController
 
             $this->addFlash(
                 'notice',
-                'Your todo is record'
+                'Your todo is updated!'
             );
 
             $em->flush();

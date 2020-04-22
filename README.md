@@ -74,6 +74,12 @@ composer require orm-fixtures --dev
 php bin/console doctrine:fixtures:load
 ```
 
+## Event
+
+```bash
+composer require symfony/event-dispatcher
+```
+
 ## Start Server
 
 ```bash

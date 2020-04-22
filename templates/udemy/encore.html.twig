@@ -55,7 +55,13 @@
                         <hr/>
                         <ul class="nav text-right">
                             <li class="mr-4 d-inline-block"><a href="/todo-edit/{{ todo.id }}">Edit</a></li>
-                            <li class="mr-4 d-inline-block"><a href="/todo-close/{{ todo.id }}">Close</a></li>
+                            <li class="mr-4 d-inline-block">
+                                {% if (todo.status | lower ) != 'done' %}
+                                    <a href="/todo-close/{{ todo.id }}">Close</a>
+                                {% else %}
+                                    Close
+                                {% endif %}
+                            </li>
                             <li class="mr-4 d-inline-block"><a href="/deletetodo/{{ todo.id }}">Delete</a></li>
                         </ul>
                     </div>

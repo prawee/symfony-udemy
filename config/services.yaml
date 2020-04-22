@@ -33,3 +33,7 @@ services:
     App\EventSubscriber\KernelSubscriber:
         tags:
             - { name: kernel.event_subscriber }
+
+    App\EventListener\TodoListener:
+        tags:
+            - { name: doctrine.event_listener, event: postPersist }
